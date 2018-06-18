@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		function getDim(){
+			var txt = "";
+			var w = $("#div2").width();
+			var h = $("#div2").height();
+			txt += "Width of div: &emsp; <b>" + w + "</b><br>";
+			txt += "Height of div: &emsp;<b>" + h + "</b><br>";
+			ar = h / w;
+			txt += "Aspect ratio: &emsp; <b>" + ar + "</b><br>";
+			$("#div1").html(txt);
+		}
+	</script>
+
+	<style type="text/css">
+		body{
+			padding: 0px;
+			margin: 0px;
+		}
+		div#div2{
+			height: 100vh;
+			width: 100vw;
+			padding: 0px;
+			margin: 0px;
+			display: none;
+		}
+		div#div1{
+			padding: 20px;
+			color: #FBFBFB;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body onload="getDim()" onclick="getDim()" style="background: #333">
+	<div id="div2"></div>
+	<div id="div1"></div>
+</body>
+</html>

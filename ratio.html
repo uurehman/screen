@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script>
-		function getDim(){
-			var txt = "";
-			var w = $("#div2").width();
-			var h = $("#div2").height();
-			txt += "Width of div: &emsp; <b>" + w + "</b><br>";
-			txt += "Height of div: &emsp;<b>" + h + "</b><br>";
-			ar = h / w;
-			txt += "Aspect ratio: &emsp; <b>" + ar + "</b><br>";
-			$("#div1").html(txt);
-		}
-	</script>
-
 	<style type="text/css">
 		body{
 			padding: 0px;
@@ -32,9 +18,46 @@
 			color: #FBFBFB;
 			font-size: 20px;
 		}
+		/*MOBILE*/
+		@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+			/* Styles */
+		}
+		/*TABLET*/
+		/*WEB*/
 	</style>
+	<link rel="stylesheet" type="text/css" href="blue.css">
+	<link rel="stylesheet" type="text/css" href="black.css">
+	<link rel="stylesheet" type="text/css" href="red.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		function getDim(){
+			var txt = "";
+			var w = $("#div2").width();
+			var h = $("#div2").height();
+			txt += "Width of div: &emsp; <b>" + w + "</b><br>";
+			txt += "Height of div: &emsp;<b>" + h + "</b><br>";
+			ar = h / w;
+			txt += "Aspect ratio: &emsp; <b>" + ar + "</b><br>";
+			if (ar < 1) {
+				txt += "<br>Website or Landscape";
+				$("link").attr("href", "web.css");
+			}
+			else if (ar > 1 && ar <1.5) {
+				txt += "<br>Tablet Device";
+				$("link").attr("href", "tablet.css");
+			}
+			else{
+				txt += "<br>Mobile Device";
+				$("link").attr("href", "mobile.css");
+			}
+			$("#div1").html(txt);
+		}
+		// Screen Width	Screen Minimal Height	Statistics
+		// 1366 px		768 px					35.00%
+	</script>
+
 </head>
-<body onload="getDim()" onclick="getDim()" style="background: #333">
+<body onload="getDim()" onclick="getDim()">
 	<div id="div2"></div>
 	<div id="div1"></div>
 </body>
